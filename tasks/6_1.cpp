@@ -58,7 +58,7 @@ void iter_replace(int* arr, const int size) {
   }
 }
 
-void rec_fill(int* arr, const int size, int i = 0) {
+void rec_fill(int* arr, const int size, int i) {
   if (i >= size) {
     return;
   }
@@ -67,7 +67,7 @@ void rec_fill(int* arr, const int size, int i = 0) {
   rec_fill(arr, size, i + 1);
 }
 
-void rec_print(const int* arr, const int size, int i = 0) {
+void rec_print(const int* arr, const int size, int i) {
   if (i == 0) {
     cout << "\n{";
   }
@@ -86,7 +86,7 @@ void rec_print(const int* arr, const int size, int i = 0) {
   rec_print(arr, size, i + 1);
 }
 
-int rec_count(const int* arr, const int size, int i = 0) {
+int rec_count(const int* arr, const int size, int i) {
   int count = 0;
 
   if (i >= size) {
@@ -98,7 +98,7 @@ int rec_count(const int* arr, const int size, int i = 0) {
   return count + rec_count(arr, size, i + 1);
 }
 
-int rec_sum(const int* arr, const int size, int i = 0) {
+int rec_sum(const int* arr, const int size, int i) {
   int sum = 0;
 
   if (i >= size) {
@@ -110,7 +110,7 @@ int rec_sum(const int* arr, const int size, int i = 0) {
   return sum + rec_sum(arr, size, i + 1);
 }
 
-void rec_replace(int* arr, const int size, int i = 0) {
+void rec_replace(int* arr, const int size, int i) {
   if (i >= size) {
     return;
   } else if (arr[i] < 0 || arr[i] % 2 != 0) {
@@ -138,15 +138,15 @@ int main() {
   iter_print(a, size);
 
   // рекурсивно
-  rec_fill(a, size);
-  rec_print(a, size);
+  rec_fill(a, size, 0);
+  rec_print(a, size, 0);
 
-  count = rec_count(a, size);
-  sum = rec_sum(a, size);
+  count = rec_count(a, size, 0);
+  sum = rec_sum(a, size, 0);
   cout << "\nCount: " << count << "\nSum: " << sum;
 
-  rec_replace(a, size);
-  rec_print(a, size);
+  rec_replace(a, size, 0);
+  rec_print(a, size, 0);
 
   return 0;
 }
