@@ -47,5 +47,8 @@ int main() {
 
   print(a, n);
   cout << "\nOdd numbers: " << count_odd(a, n);
+
+  delete[] a;
+  return 0;
 }
 #endif
