@@ -7,6 +7,7 @@
 #include <time.h>
 
 #include <cstdlib>
+#include <iomanip>
 #include <iostream>
 
 using namespace std;
@@ -18,13 +19,9 @@ void fill(int* arr, const int size) {
 }
 
 void print(const int* arr, const int size) {
-  cout << "\n{";
+  cout << "\n";
   for (int i = 0; i < size; i++) {
-    if (i != size - 1) {
-      cout << arr[i] << ", ";
-    } else {
-      cout << arr[i] << "}\n";
-    }
+    cout << setw(5) << arr[i];
   }
 }
 
