@@ -111,8 +111,6 @@ int rec_sum(const int* arr, const int size, int i = 0) {
 }
 
 void rec_replace(int* arr, const int size, int i = 0) {
-  int sum = 0;
-
   if (i >= size) {
     return;
   } else if (arr[i] < 0 || arr[i] % 2 != 0) {
