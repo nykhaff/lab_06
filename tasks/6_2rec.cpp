@@ -52,13 +52,12 @@ int main() {
   cout << "n = ";
   cin >> n;
 
-  int* a = new int[n];
+  int a[n] = {};
   enter_elements(a, n, 0);
 
   print(a, n, 0);
   cout << "\nOdd numbers: " << count_odd(a, n, 0);
 
-  delete[] a;
   return 0;
 }
 #endif

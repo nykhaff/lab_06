@@ -42,13 +42,12 @@ int main() {
   cout << "n = ";
   cin >> n;
 
-  int* a = new int[n];
+  int a[n] = {};
   enter_elements(a, n);
 
   print(a, n);
   cout << "\nOdd numbers: " << count_odd(a, n);
 
-  delete[] a;
   return 0;
 }
 #endif
