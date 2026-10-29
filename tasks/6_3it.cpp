@@ -9,6 +9,19 @@
 
 using namespace std;
 
+void fill_a(int* arr, const int size) {
+  for (int i = 0; i < size; i++) {
+    arr[i] = rand() % 66 - 50;
+  }
+}
+
+template <typename T>
+void fill_a(T* arr, const int size) {
+  for (int i = 0; i < size; i++) {
+    arr[i] = rand() % 66 - 50;
+  }
+}
+
 void print(const int* arr, const int size) {
   cout << "\n\n";
   for (int i = 0; i < size; i++) {
@@ -54,15 +67,18 @@ int main() {
   int s1, s2, s3;
   const int n = 10;
 
-  int a[n] = {1, 2, 3, 5, 7, 8, 40, 3, 65, 100};
+  int a[n] = {};
+  fill_a(a, n);
   print(a, n);
   s1 = sum_even(a, n);
   cout << "\nsum_even(a, n) = " << s1;
 
+  fill_a<int>(a, n);
   s2 = sum_even<int>(a, n);
   cout << "\nsum_even<int>(a, n) = " << s2;
 
-  long b[n] = {1, 2, 3, 5, 7, 8, 40, 3, 65, 100};
+  long b[n] = {};
+  fill_a<long>(b, n);
   print<long>(b, n);
   s3 = sum_even<long>(b, n);
   cout << "\nsum_even<long>(b, n) = " << s3;

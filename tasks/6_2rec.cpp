@@ -39,7 +39,7 @@ int count_odd(const int* arr, const int size, int i) {
 
   if (i >= size) {
     return 0;
-  } else if (arr[i] % 2 != 0) {
+  } else if (!(arr[i] % 2 == 0)) {
     count = 1;
   }
 

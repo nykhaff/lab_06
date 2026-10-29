@@ -9,8 +9,29 @@
 
 using namespace std;
 
-void print(const int* arr, const int size, int i) {
+void fill_a(int* arr, const int size, int i) {
   if (i >= size) {
+    return;
+  }
+
+  arr[i] = rand() % 66 - 50;
+  fill_a(arr, size, i + 1);
+}
+
+template <typename T>
+void fill_a(T* arr, const int size, int i) {
+  if (i >= size) {
+    return;
+  }
+
+  arr[i] = rand() % 66 - 50;
+  fill_a(arr, size, i + 1);
+}
+
+void print(const int* arr, const int size, int i) {
+  if (i == 0) {
+    cout << "\n\n";
+  } else if (i >= size) {
     return;
   }
 
@@ -50,9 +71,7 @@ T sum_even(const T* arr, const int size, int i) {
 
   if (i >= size) {
     return T();
-  }
-
-  if (arr[i] % 2 == 0) {
+  } else if (arr[i] % 2 == 0) {
     sum = arr[i];
   }
 
@@ -64,15 +83,18 @@ int main() {
   int s1, s2, s3;
   const int n = 10;
 
-  int a[n] = {1, 2, 3, 5, 7, 8, 40, 3, 65, 100};
+  int a[n] = {};
+  fill_a(a, n, 0);
   print(a, n, 0);
   s1 = sum_even(a, n, 0);
   cout << "\nsum_even(a, n, 0) = " << s1;
 
+  fill_a<int>(a, n, 0);
   s2 = sum_even<int>(a, n, 0);
   cout << "\nsum_even<int>(a, n, 0) = " << s2;
 
-  long b[n] = {1, 2, 3, 5, 7, 8, 40, 3, 65, 100};
+  long b[n] = {};
+  fill_a<long>(b, n, 0);
   print<long>(b, n, 0);
   s3 = sum_even<long>(b, n, 0);
   cout << "\nsum_even<long>(b, n, 0) = " << s3;
