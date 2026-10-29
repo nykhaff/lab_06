@@ -64,8 +64,10 @@ T sum_even(const T* arr, const int size) {
 
 #ifndef TEST_MODE
 int main() {
-  int s1, s2, s3;
-  const int n = 10;
+  int n, s1, s2, s3;
+
+  cout << "n = ";
+  cin >> n;
 
   int a[n] = {};
   fill_a(a, n);
@@ -74,6 +76,8 @@ int main() {
   cout << "\nsum_even(a, n) = " << s1;
 
   fill_a<int>(a, n);
+  print(a, n);
+
   s2 = sum_even<int>(a, n);
   cout << "\nsum_even<int>(a, n) = " << s2;
 
