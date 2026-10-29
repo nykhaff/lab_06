@@ -37,11 +37,7 @@ int even_i_product(const int* arr, const int size, int i) {
     return 1;
   }
 
-  if (i % 2 == 0) {
-    return arr[i] * even_i_product(arr, size, i + 1);
-  } else {
-    return even_i_product(arr, size, i + 1);
-  }
+  return arr[i] * even_i_product(arr, size, i + 2);
 }
 
 int find_first_zero(const int* arr, const int size, int i) {
@@ -86,12 +82,12 @@ void transform(int* arr, const int size, int i, bool is_swapped) {
     }
   }
 
-  int s;
+  int temp;
   if (arr[i] < 0 && arr[i + 1] >= 0) {
-    s = arr[i];
+    temp = arr[i];
 
     arr[i] = arr[i + 1];
-    arr[i + 1] = s;
+    arr[i + 1] = temp;
 
     is_swapped = true;
   }

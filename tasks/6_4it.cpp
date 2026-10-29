@@ -28,7 +28,7 @@ void print(const int* arr, const int size) {
 int calc_product(const int* arr, const int size) {
   int prod = 1;
 
-  for (int i = 0; i < size; i++) {
+  for (int i = 0; i < size; i += 2) {
     if (i % 2 == 0) {
       prod *= arr[i];
     }
@@ -67,28 +67,23 @@ int sum_between_zeros(const int* arr, const int size) {
 }
 
 void transform(int* arr, const int size) {
-  int* temp = new int[size];
-  int k = 0;
+  int temp;
+  bool is_swapped;
 
-  for (int i = 0; i < size; i++) {
-    if (arr[i] >= 0) {
-      temp[k] = arr[i];
-      k++;
+  do {
+    is_swapped = false;
+
+    for (int i = 0; i + 1 < size; i++) {
+      if (arr[i] < 0 && arr[i + 1] >= 0) {
+        temp = arr[i];
+
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+
+        is_swapped = true;
+      }
     }
-  }
-
-  for (int i = 0; i < size; i++) {
-    if (arr[i] < 0) {
-      temp[k] = arr[i];
-      k++;
-    }
-  }
-
-  for (int i = 0; i < size; i++) {
-    arr[i] = temp[i];
-  }
-
-  delete[] temp;
+  } while (is_swapped);
 }
 
 #ifndef TEST_MODE
